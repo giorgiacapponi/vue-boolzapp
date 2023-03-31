@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="main-container">
+                <div class="row">
+                    <div class="col-left">
+                        <div class="header-left"></div>
+                        <div class="option-message"></div>
+                        <div class="search-chat">
+                            <input type="text" placeholder="cerca o inizia una nuova chat">
+                        </div>
+                        
+                        <ul class="contacts">
+                            <li class="single-contact" v-for="item in contacts">
+                            <div class="img-container">
+                                <img src= "img/avatar{{item.avatar}}.jpg" alt="">
+                            </div>
+                            <div class="name-contact">
+                                <h3>{{item.name}}</h3>
+                                <p>ultimo messaggio ricevuto</p>
+                            </div>
+                            <div class="time">12:30</div>
+
+                            </li>
+                           
+                   
+                        </ul>
+                    </div>
+                    <div class="col-right">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+   <script src="js/data.js"></script> 
+</body>
+</html>

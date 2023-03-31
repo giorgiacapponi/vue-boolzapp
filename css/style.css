@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+img{
+    max-width: 100%;
+}
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    padding: 1rem 0;
+    background-color: aquamarine;
+    
+}
+.main-container{
+    width: 80%;
+    height:calc(100vh - 2rem);
+    margin: 0 auto;
+    background-color: grey;
+}
+.row{
+    width: 100%;
+    height: 100%;
+     display: flex;
+}
+.col-left{
+    width: 40%;
+    height:100%;
+    background-color: yellowgreen;
+   
+   
+}
+.col-right{
+    width: 70%;
+    height: 100%;
+    background-color: yellow;
+}
+.header-left{
+    height: 50px;
+    background-color: blueviolet;
+}
+.option-message{
+    height: 60px;
+    background-color: brown;
+}
+.search-chat{
+    padding: .3rem;
+}
+.col-left input{
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+
+}
+.contacts{
+    height: calc(100% - 160px);
+    overflow:auto;
+    list-style-type: none;
+     
+     background-color: blue;
+}
+.single-contact{
+    display: flex;
+    align-items: center;
+    padding: .3rem;
+}
+.img-container{
+width: 20%;
+margin-right: .5rem;
+   
+   
+   
+}
+.name-contact{
+    width: calc(70% - .5rem);
+}
+.time{
+    width: 10%;
+
+}
+.img-container img{
+    width:70px;
+    height:70px;
+     border-radius: 50%;
+} 
+
