@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
@@ -15,20 +16,41 @@
             <div class="main-container">
                 <div class="row">
                     <div class="col-left">
-                        <div class="header-left"></div>
-                        <div class="option-message"></div>
+                        <div class="header-left">
+                            <div class="img-container ">
+                                <img src="img/avatar_io.jpg" alt="">
+                                <h3>nome</h3>
+                            </div>
+                           
+                            <ul>
+                                <li><i class="fa-solid fa-circle-notch"></i></li>
+                                <li><i class="fa-solid fa-message"></i></li>
+                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                            </ul>
+                            
+                        </div>
+                        <div class="option-message">
+                            <div class="circle-bell"><i class="fa-solid fa-bell-slash"></i></div>
+                            <div>
+                                <h4>ricevi notifiche nuovi messaggi</h4>
+                                <a href="">attiva notifiche desktop</a>
+                            </div>
+                        </div>
                         <div class="search-chat">
+                            <div>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
                             <input type="text" placeholder="cerca o inizia una nuova chat">
                         </div>
                         
                         <ul class="contacts">
-                            <li class="single-contact" v-for="item in contacts">
+                            <li class="single-contact" :class="" v-for="(item,index) in contacts" @click="userActive(item)">
                             <div class="img-container">
-                                <img src= "img/avatar{{item.avatar}}.jpg" alt="">
+                                <img :src= "`img/avatar${item.avatar}.jpg`" alt="">
                             </div>
-                            <div class="name-contact">
+                            <div class="name-contact"  >
                                 <h3>{{item.name}}</h3>
-                                <p>ultimo messaggio ricevuto</p>
+                                <div class="last-message">ultimo messaggio ricevuto</div>
                             </div>
                             <div class="time">12:30</div>
 
@@ -38,6 +60,38 @@
                         </ul>
                     </div>
                     <div class="col-right">
+                        <div class="header-right">
+                            <div class="img-container ">
+                                <img :src="`img/avatar${activeAvatar}.jpg`" alt="">
+                                <div>
+                                    <h3>{{activeName}}</h3>
+                                    <div class="last-message">ultimo accesso</div>
+                                </div>
+                            </div>
+                           
+                            <ul>
+                                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                                <li><i class="fa-solid fa-paperclip"></i></li>
+                                <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                            </ul>
+                            
+                        </div>
+                        <div class="main-right">
+                            <div class="container-message">
+                                <div class="message-row ":class="[item.status==='received'?'white':'green']" v-for="item in activeMessage ">
+                                    {{item.message}}
+                                </div>
+                              
+                                
+                            </div>
+                            
+
+                        </div>
+                        <div class="footer-right">
+                            <div><i class="fa-regular fa-face-smile"></i></div>
+                            <input type=" text" placeholder="scrivi messaggio" @keyup.enter="newMessage(myMessage)" v-model="myMessage">
+                            <div><i class="fa-solid fa-microphone"></i></div>
+                        </div>
 
                     </div>
                 </div>

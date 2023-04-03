@@ -164,10 +164,44 @@ createApp({
                         }
                     ],
                 }
-            ]
-
+            ],
+        //  activeUser:[],
+            activeAvatar:'',
+            activeName:'',
+            activeMessage:[]
         }
     },
+    methods:{
+     userActive(item){
+this.activeAvatar=item.avatar;
+this.activeName=item.name;
+this.activeMessage=item.messages
+        // let curUser={
+        //     activeAvatar:item.avatar,
+        //     activeName:item.name,
+        //     activeMessage:item.messages
+        // }
+        // this.activeUser.push(curUser)
+
+     },
+    newMessage(myMessage){
+        const newMessage={
+            date: '10/01/2020 15:50:00',
+            message: myMessage,
+            status: 'sent'
+
+        }
+ this.activeMessage.push(newMessage)
+        newMessage=''
+    }
+       
+}
+        
+        
+        
+      
+    
+    
 
 }).mount('#app')
 
