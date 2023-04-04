@@ -229,7 +229,16 @@ this.activeMessage=item.messages
 
        
    
-       }
+       },
+    //    mostra contatto con search
+    searchContact(item){
+       let showedItem;
+        if(item.name.includes(this.searchName)){
+            showedItem=item
+        }
+       return showedItem
+        
+    }
 }
         
         
