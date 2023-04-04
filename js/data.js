@@ -170,7 +170,11 @@ createApp({
             activeName:'',
             activeMessage:[],
             curMessage:[],
-            searchName:''
+            searchName:'',
+            deleteWindow:true,
+            infoMess:'info messaggi',
+            deleteMess:'cancella messaggio'
+        
         }
     },
     methods:{
@@ -200,7 +204,7 @@ this.activeMessage=item.messages
     
       setTimeout(()=>{
         this.newMessageResponse(this.curMessage)
-      },2000) 
+      },1000) 
       
 
     },
@@ -238,7 +242,24 @@ this.activeMessage=item.messages
         }
        return showedItem
         
+    },
+    // mostra finestra
+    showWindow(item){
+        item.window=true
+
+    },
+    // cancella messaggio
+    deleteMessage(item){
+        item.windows=true
+        item.status=''
+        item.message=''
+        console.log(item);
+        this.deleteWindow=false
+        this.infoMess=''
+        this.deleteMess=''
+        
     }
+
 }
         
         

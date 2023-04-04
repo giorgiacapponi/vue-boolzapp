@@ -217,6 +217,7 @@ i{
 }
 .message-row{
     margin-bottom: .3rem;
+    position: relative;
 }
 .green{
     width: 40%;
@@ -235,4 +236,22 @@ i{
     padding: .7rem;
     position: relative;
     
+}
+
+.delete-window{
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    
+
+}
+.delete-window ul{
+    list-style-type: none;
+    padding: 1rem .5rem;
+
+}
+.delete-window li{
+    height: 30px;
+    border: 1px solid grey;
 }

@@ -7,7 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.global.min.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
 
 </head>
 <body>
@@ -78,8 +79,17 @@
                         </div>
                         <div class="main-right">
                             <div class="container-message">
-                                <div class="message-row ":class="[item.status==='received'?'white':'green']" v-for="item in activeMessage ">
-                                    {{item.message}}
+                                <div class="message-row ":class="[item.status==='received'?'white':'',item.status==='sent'?'green':'']" v-for="item in activeMessage " @click="showWindow(item)" >
+                                    <div v-if="item.window">
+                                        <div>{{item.message}}</div>
+                                        <div :class="{'delete-window':deleteWindow}">
+                                            <ul>
+                                                <li>{{infoMess}}</li>
+                                                <li @click="deleteMessage(item)">{{deleteMess}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <div v-else>{{item.message}} </div>
                                 </div>
                               
                                 
