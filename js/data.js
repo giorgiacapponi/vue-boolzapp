@@ -168,7 +168,9 @@ createApp({
         //  activeUser:[],
             activeAvatar:'',
             activeName:'',
-            activeMessage:[]
+            activeMessage:[],
+            curMessage:[],
+            searchName:''
         }
     },
     methods:{
@@ -185,16 +187,49 @@ this.activeMessage=item.messages
 
      },
     newMessage(myMessage){
-        const newMessage={
+        this.curMessage=this.activeMessage
+        let newMessages={
             date: '10/01/2020 15:50:00',
             message: myMessage,
             status: 'sent'
 
         }
- this.activeMessage.push(newMessage)
-        newMessage=''
-    }
+         this.activeMessage.push(newMessages)
+         
+
+    
+      setTimeout(()=>{
+        this.newMessageResponse(this.curMessage)
+      },2000) 
+      
+
+    },
+    // il messaggio OK! deve apparire sul contatto dove ho inviato il messaggio
+       newMessageResponse(curMessage){
+        if(curMessage==this.activeMessage){
+            const response={
+            
+                date: '10/01/2020 15:50:00',
+                message: 'OK!',
+                status: 'received'
+            }
+            this.curMessage.push(response)
+
+
+        }else{
+            const response={
+            
+                date: '10/01/2020 15:50:00',
+                message: 'OK!',
+                status: 'received'
+            }
+            this.curMessage.push(response)
+        }
+            
+
        
+   
+       }
 }
         
         
